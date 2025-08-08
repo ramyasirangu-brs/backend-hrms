@@ -39,5 +39,15 @@ public class LeaveRequestServiceImpl implements LeaveRequestService {
     public List<LeaveRequest> getLeavesByEmployee(String employeeId) {
         return leaveRepo.findByEmployee_EmployeeId(employeeId);
     }
+    @Override
+    public List<LeaveRequest> getLeavesByStatus(String status) {
+        LeaveStatus leaveStatus;
+        try {
+            leaveStatus = LeaveStatus.valueOf(status.toUpperCase());
+        } catch (IllegalArgumentException e) {
+            throw new RuntimeException("Invalid leave status: " + status);
+        }
+        return leaveRepo.findByStatus(leaveStatus);
+    }
 }
 

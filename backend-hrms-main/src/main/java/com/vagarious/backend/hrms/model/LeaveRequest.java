@@ -25,6 +25,7 @@ public class LeaveRequest {
 
     private LocalDate toDate;
 
+    private LocalDate requestDate;
     private String reason;
 
     // Constructors

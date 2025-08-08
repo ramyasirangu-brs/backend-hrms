@@ -5,6 +5,7 @@ import java.util.List;
 
 public interface LeaveRequestService {
     List<LeaveRequest> getAllLeaveRequests();
+    List<LeaveRequest> getLeavesByStatus(String status);
     LeaveRequest applyLeave(LeaveRequest leave);
     LeaveRequest updateStatus(Long id, String status);
     List<LeaveRequest> getLeavesByEmployee(String employeeId);
